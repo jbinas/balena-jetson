@@ -24,12 +24,14 @@ SRC_URI = " \
     file://resinOS-flash194.xml \
     file://partition_specification194.txt \
     file://${BOOT_BINDIFF} \
+    file://tegra19x-mb1-pinmux-agx-cti.cfg \
 "
 
 PINMUXCFG = "tegra19x-mb1-pinmux-p2888-0000-a04-p2822-0000-b01.cfg"
+PINMUXCFG:cti-rogue-xavier = "tegra19x-mb1-pinmux-agx-cti.cfg"
 LNXSIZE ?= "67108864"
 DTBNAME = "tegra194-p2888-0001-p2822-0000"
-DTBNAME_cti-rogue-xavier = "tegra194-agx-cti-AGX101"
+DTBNAME:cti-rogue-xavier = "tegra194-agx-cti-AGX101"
 KERNEL_DEVICETREE = "${DEPLOY_DIR_IMAGE}/${DTBNAME}.dtb"
 DTBFILE ?= "${@os.path.basename(d.getVar('KERNEL_DEVICETREE', True).split()[0])}"
 
@@ -135,6 +137,7 @@ do_configure() {
     ln -s "${DEPLOY_DIR_IMAGE}/cboot-${MACHINE}.bin" ./cboot_t194.bin
     ln -s "${DEPLOY_DIR_IMAGE}/tos-${MACHINE}.img" ./tos-trusty_t194.img
 
+    cp ${WORKDIR}/${PINMUXCFG} .
     cp "${DEPLOY_DIR_IMAGE}/bootlogo-${MACHINE}.blob" ./bmp.blob
     mkdir -p ${DEPLOY_DIR_IMAGE}/bootfiles
     cp ./cboot_t194.bin ${DEPLOY_DIR_IMAGE}/bootfiles/
