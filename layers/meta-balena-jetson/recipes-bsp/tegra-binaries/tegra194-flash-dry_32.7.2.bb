@@ -29,6 +29,7 @@ SRC_URI = " \
 PINMUXCFG = "tegra19x-mb1-pinmux-p2888-0000-a04-p2822-0000-b01.cfg"
 LNXSIZE ?= "67108864"
 DTBNAME = "tegra194-p2888-0001-p2822-0000"
+DTBNAME_cti-rogue-xavier = "tegra194-agx-cti-AGX101"
 KERNEL_DEVICETREE = "${DEPLOY_DIR_IMAGE}/${DTBNAME}.dtb"
 DTBFILE ?= "${@os.path.basename(d.getVar('KERNEL_DEVICETREE', True).split()[0])}"
 

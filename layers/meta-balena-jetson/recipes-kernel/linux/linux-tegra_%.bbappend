@@ -38,6 +38,10 @@ SRC_URI:append:jetson-xavier-nx-devkit-seeed-2mic-hat = " \
     file://tegra194-p3668-all-p3509-0000-seeed-2mic-hat.dtb \
 "
 
+SRC_URI:append:cti-rogue-xavier = " \
+    file://tegra194-agx-cti-AGX101.dtb \
+"
+
 SRC_URI:append:astro-tx2 = " \
     file://tegra186-tx2-cti-ASG001-revG+.dtb \
 "
@@ -381,3 +385,6 @@ do_deploy:append:astro-tx2() {
     cp ${WORKDIR}/tegra186-tx2-cti-ASG001-revG+.dtb "${DEPLOYDIR}"
 }
 
+do_deploy:append:cti-rogue-xavier() {
+    cp ${WORKDIR}/tegra194-agx-cti-AGX101.dtb "${DEPLOYDIR}"
+}
