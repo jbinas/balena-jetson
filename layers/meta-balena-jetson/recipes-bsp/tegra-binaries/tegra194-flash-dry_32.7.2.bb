@@ -32,6 +32,7 @@ PINMUXCFG:cti-rogue-xavier = "tegra19x-mb1-pinmux-agx-cti.cfg"
 LNXSIZE ?= "67108864"
 DTBNAME = "tegra194-p2888-0001-p2822-0000"
 DTBNAME:cti-rogue-xavier = "tegra194-agx-cti-AGX101"
+DTBNAME:cti-rogue-xavier-jcb005 = "tegra194-agx-cti-AGX101-JCB005-AVT-CSI2-6CAM"
 KERNEL_DEVICETREE = "${DEPLOY_DIR_IMAGE}/${DTBNAME}.dtb"
 DTBFILE ?= "${@os.path.basename(d.getVar('KERNEL_DEVICETREE', True).split()[0])}"
 

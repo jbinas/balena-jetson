@@ -42,6 +42,10 @@ SRC_URI:append:cti-rogue-xavier = " \
     file://tegra194-agx-cti-AGX101.dtb \
 "
 
+SRC_URI:append:cti-rogue-xavier-jcb005 = " \
+    file://tegra194-agx-cti-AGX101-JCB005-AVT-CSI2-6CAM.dtb \
+"
+
 SRC_URI:append:astro-tx2 = " \
     file://tegra186-tx2-cti-ASG001-revG+.dtb \
 "
@@ -387,4 +391,8 @@ do_deploy:append:astro-tx2() {
 
 do_deploy:append:cti-rogue-xavier() {
     cp ${WORKDIR}/tegra194-agx-cti-AGX101.dtb "${DEPLOYDIR}"
+}
+
+do_deploy:append:cti-rogue-xavier-jcb005() {
+    cp ${WORKDIR}/tegra194-agx-cti-AGX101-JCB005-AVT-CSI2-6CAM.dtb "${DEPLOYDIR}"
 }
